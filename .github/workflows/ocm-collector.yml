@@ -1,32 +1,3 @@
-name: OCM Data Collection
-
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "0 3 * * *"
-
-jobs:
-  collect:
-    runs-on: ubuntu-latest
-
-    steps:
-      - uses: actions/checkout@v4
-
-      - uses: actions/setup-python@v5
-        with:
-          python-version: "3.12"
-
-      - run: pip install requests
-
-      - name: Fetch OCM data
-        run: python src/ocm_collector.py
-        env:
-          OCM_API_KEY: ${{ secrets.OCM_API_KEY }}
-
-      - uses: actions/upload-artifact@v4
-        with:
-          name: station-information
-          path: data/station_information.csv
 
 name: OCM Data Collection
 
@@ -56,7 +27,7 @@ jobs:
         env:
           OCM_API_KEY: ${{ secrets.OCM_API_KEY }}
 
-      - name: Save CSV result
+      - name: Save CSV as artifact
         uses: actions/upload-artifact@v4
         with:
           name: station-information
