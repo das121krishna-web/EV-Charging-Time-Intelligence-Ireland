@@ -68,8 +68,12 @@ if response.status_code == 200:
     print("Stations with availability references:", availability_count)
 
     # 6. Prepare CSV file
-    os.makedirs("data", exist_ok=True)
-    csv_file = "data/availability_observations_v2.csv"
+    project_folder = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+    data_folder = os.path.join(project_folder, "data")
+
+    os.makedirs(data_folder, exist_ok=True)
+
+    csv_file = os.path.join(data_folder, "availability_observations_v2.csv")
 
     file_exists = os.path.isfile(csv_file)
 
