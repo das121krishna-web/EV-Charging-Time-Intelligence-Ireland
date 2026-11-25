@@ -39,7 +39,7 @@ jobs:
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/availability_observations_v2.csv
-          git add data/cleaned_availability_observations_v2.csv
+          git add -f data/availability_observations_v2.csv
+          git add -f data/cleaned_availability_observations_v2.csv
           git diff --cached --quiet || git commit -m "Update EV charging availability observations"
           git push
