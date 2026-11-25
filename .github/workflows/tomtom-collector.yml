@@ -1,0 +1,45 @@
+
+name: TomTom EV Availability Collection
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: tomtom-data-collection
+  cancel-in-progress: false
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Get project files
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install pandas
+
+      - name: Collect TomTom availability
+        run: python src/tomtom_collector.py
+        env:
+          TOMTOM_API_KEY: ${{ secrets.TOMTOM_API_KEY }}
+
+      - name: Clean availability observations
+        run: python src/data_cleaner.py
+
+      - name: Save collected data to GitHub
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/availability_observations_v2.csv
+          git add data/cleaned_availability_observations_v2.csv
+          git diff --cached --quiet || git commit -m "Update EV charging availability observations"
+          git push
