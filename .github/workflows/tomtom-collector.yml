@@ -48,4 +48,3 @@ jobs:
           git add -f data/cleaned_availability_observations_v2.csv
           git diff --cached --quiet || git commit -m "Update EV charging availability observations"
           git push
-n 
