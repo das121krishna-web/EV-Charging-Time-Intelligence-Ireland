@@ -2,13 +2,15 @@
 name: TomTom EV Availability Collection
 
 on:
+  push:
+    branches:
+      - main
   workflow_dispatch:
     inputs:
       run_reason:
         description: "Reason for manual collection"
         required: false
         default: "Manual test"
-
 permissions:
   contents: write
 
