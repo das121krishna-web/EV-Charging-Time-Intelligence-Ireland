@@ -11,6 +11,7 @@ on:
         description: "Reason for manual collection"
         required: false
         default: "Manual test"
+
 permissions:
   contents: write
 
@@ -32,7 +33,7 @@ jobs:
           python-version: "3.12"
 
       - name: Install dependencies
-        run: pip install pandas
+        run: pip install pandas "psycopg[binary]"
 
       - name: Collect TomTom availability
         run: python src/tomtom_collector.py
@@ -41,6 +42,11 @@ jobs:
 
       - name: Clean availability observations
         run: python src/data_cleaner.py
+
+      - name: Import observations into Supabase
+        run: python src/database_import.py
+        env:
+          SUPABASE_DB_URL: ${{ secrets.SUPABASE_DB_URL }}
 
       - name: Save collected data to GitHub
         run: |
