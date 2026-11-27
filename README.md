@@ -1,5 +1,5 @@
 
-# EV Charging Time Intelligence System – Ireland
+# EV Charging Time Intelligence System – (currently in dublin) Ireland
 
 ## Overview
 A data-driven project to collect and analyse EV charging station availability across Ireland using the TomTom API, Python and Supabase PostgreSQL.
