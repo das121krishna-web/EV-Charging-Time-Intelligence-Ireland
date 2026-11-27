@@ -1,33 +1,33 @@
-#EV Charging Time Intelligence System – Ireland
 
-Overview
+# EV Charging Time Intelligence System – Ireland
 
-A data-driven project that collects and analyses EV charging station availability across Ireland using the TomTom API, Python and Supabase PostgreSQL.
+## Overview
+A data-driven project to collect and analyse EV charging station availability across Ireland using the TomTom API, Python and Supabase PostgreSQL.
 
-Technologies
-
+## Technologies
 Python | Pandas | TomTom API | PostgreSQL | Supabase | GitHub Actions
 
-Completed Work
+## Completed Work
+- Integrated TomTom EV Charging Availability API.
+- Retrieved 100 station results, with 90 availability-enabled stations.
+- Developed automated data collection and cleaning scripts.
+- Created PostgreSQL database tables.
+- Integrated Python with Supabase.
+- Configured and tested automated data collection every 6 hours.
 
-Integrated TomTom EV Charging Availability API.
+## Current Progress
+- 90 charging stations.
+- 270 availability observations.
+- Automated collection and database storage successfully tested.
+- Three-week historical data collection in progress.
 
-Retrieved 100 station results, with 90 availability-enabled stations.
+## Next Steps
+- Exploratory Data Analysis (EDA).
+- Busy and quiet period analysis.
+- Machine-learning occupancy prediction.
+- Charging-time recommendations.
+- Interactive dashboard development.
 
-Developed automated data collection and cleaning scripts.
+## Repository
+[EV Charging Time Intelligence – Ireland](https://github.com/das121krishna-web/EV-Charging-Time-Intelligence-Ireland)
 
-Created PostgreSQL database tables.
-
-Integrated Python with Supabase.
-
-Configured and tested automated data collection every 6 hours.
-
-Current Progress
-
-90 charging stations.
-
-270 availability observations.
-
-Automated collection and database storage successfully tested.
-
-Three-week historical data collection in progress.
