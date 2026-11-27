@@ -31,3 +31,8 @@ Python | Pandas | TomTom API | PostgreSQL | Supabase | GitHub Actions
 ## Repository
 [EV Charging Time Intelligence – Ireland](https://github.com/das121krishna-web/EV-Charging-Time-Intelligence-Ireland)
 
+## Project Workflow
+
+![EV Charging Time Intelligence Workflow](data/workflow.png)
+
+
